@@ -1,0 +1,13 @@
+{% block "poll_header" %}
+<br>
+<h5><b>Голосование:</b></h5>
+<h4>{{ poll.question }}</h4>
+{% comment %}
+{% endcomment %}
+{% endblock %}
+{% if can_vote %}
+{% include "cms/plugins/poll_form.html" %}
+{% else %}
+{% include "cms/plugins/poll_results.html" %}
+{% endif %}
+{% block "poll_footer" %}{% endblock %}

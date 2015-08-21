@@ -1,0 +1,28 @@
+{% extends "feature.html" %}
+
+{% block content %}
+
+<h3>Результат поиска</h3>
+
+{% if persons|length > 100 %}
+  <h4>Количество найденных записей превышает 100. Пожалуйста, уточните запрос.</h4>
+{% else %}
+  {% regroup persons by div as person_div_list %}
+  <ul>
+  {% for t in person_div_list %}
+    <li><h4>{{ t.grouper.name }}  (код меридиана: {{ t.grouper.mcode }})</h4>
+    <ul>
+    {% for item in t.list %}
+      <div id="person" style="text-align: left">
+      <h4><a href="/userdir/get/{{ item.pers_id }}/">{{ item.name }}</a>   <b>&#9993; {{ item.email|urlize }}</b>  &#9742; {{ item.mtel|default_if_none:"" }} &#160  &#127968 {{ item.office | default_if_none:"" }}</h4>
+      </div>
+    {% endfor %}
+    </ul>
+    </li>
+  {% endfor %}
+  </ul>
+
+{% endif %}
+
+{% endblock %}
+

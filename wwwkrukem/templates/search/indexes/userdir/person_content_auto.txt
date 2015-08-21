@@ -1,0 +1,9 @@
+{{ object.div.pri }}
+{{ object.div.name }}
+{{ object.email }}
+{{ object.name }}
+{{ object.office }}
+{{ object.mtel }}
+{{ object.post }}
+{{ object.subdiv }}
+{{ object.do_wrong_layout }}
