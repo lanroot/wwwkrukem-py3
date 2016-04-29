@@ -1,0 +1,38 @@
+{% extends "feature.html" %}
+
+{% block title %}Персональный поиск{% endblock title %}
+
+{% block content %}
+
+<div id="title-center"><h3>{{ div.name }} (г.{{ city.name }})</h3>
+    <h4>Код города: {{ city.ccode }}. Код меридиана:{{ div.mcode }}</h4>
+</div>
+<div id="person">
+<table align="center">
+  <tbody>
+    <tr>
+      <th>ФИО</th>
+      <th>E-mail</th>
+      <th>Тел.Меридиан</th>
+      <th>Тел.Городской</th>
+      <th>Тел.Сотовый</th>
+      <th>Кабинет</th>
+      <th>Подразделение</th>
+      <th>Должность</th>
+    </tr>
+    <tr>
+      <td>{{ person.name }}</td>
+      <td><a href="mailto:{{ person.name }} <{{ person.email }}>">{{ person.email }}</a></td>
+      <td>{{ person.mtel |default_if_none:"" }}</td>
+      <td>{{ person.gtel |default_if_none:"" }}</td>
+      <td>{{ person.stel |default_if_none:"" }}</td>
+      <td>{{ person.office |default_if_none:"" }}</td>
+      <td>{{ person.subdiv |default_if_none:"" }}</td>
+      <td>{{ person.post |default_if_none:"" }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+{% endblock %}
+

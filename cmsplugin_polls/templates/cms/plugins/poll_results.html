@@ -1,0 +1,16 @@
+{% load poll_tags i18n %}
+
+{% block "results_header" %}
+<h4>{% trans "Results" %}</h4>
+{% endblock %}
+{% with poll.max_votes as max %}
+  {% for choice in poll.choice_set.iterator %}
+    {% block "result" %}
+    <div class="result">
+      <span class="votes">{{ choice.text }}</span>
+      <b><span class="votes">{{ choice.votes }}</span></b> ({% get_choice_rate poll choice %})
+    </div>
+    {% endblock %}
+  {% endfor %}
+{% endwith %}
+{% block "results_footer" %}{% endblock %}

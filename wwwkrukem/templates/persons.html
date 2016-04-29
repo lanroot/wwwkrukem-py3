@@ -1,0 +1,53 @@
+{% extends "feature.html" %}
+
+{% block title %}Групповой поиск{% endblock title %}
+
+{% block content %}
+
+{% if error %}
+  <h4 style="color: red;">
+     Недостаточно аргументов поиска. Необходимо ввести минимум 3 символа.
+  </h4>
+{% endif %}
+
+<h3>Результат поиска</h3>
+
+{% if persons|length > 100 %}
+  <h4>Количество найденных записей превышает 100. Пожалуйста, уточните запрос.</h4>
+{% else %}
+  {% regroup persons by div as person_div_list %}
+  <ul>
+  {% for t in person_div_list %}
+    <li><h4>{{ t.grouper.name }}  (код меридиана: {{ t.grouper.mcode }})</h4>
+      <div id="persons" style="text-align: left">
+      <table>
+        <tbody>
+        <tr><h3>
+          <th>&#128694;</th>
+          <th>&#128233;</th>
+          <th>&#9742;</th>
+          <th>&#9743;</th>
+          <th>&#127968;</th>
+          <th>&#9874;</th>
+        </tr></h3>
+        {% for item in t.list %}
+          <tr><h4>
+            <td><a href="/userdir/get/{{ item.pers_id }}">{{ item.name }}</a></td>
+            <td><b><a href="mailto:{{ item.name }} <{{ item.email }}>">{{ item.email }}</b></td>
+            <td>{{ item.mtel | default_if_none:"" }}</td>
+            <td>{{ item.gtel | default_if_none:"" }}</td>
+            <td>{{ item.office | default_if_none:"" }}</td>
+            <td>{{ item.post }}</td>
+          </tr></h4>
+        {% endfor %}
+        </tbody>
+      </table>
+      </div>
+    <br>
+    </li>
+  {% endfor %}
+  </ul>
+
+{% endif %}
+
+{% endblock %}
