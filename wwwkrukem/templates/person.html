@@ -22,7 +22,7 @@
     </tr>
     <tr>
       <td>{{ person.name }}</td>
-      <td><a href="mailto:{{ person.name }} <{{ person.email }}>">{{ person.email }}</a></td>
+      <td>{{ person.email | urlize }}</a></td>
       <td>{{ person.mtel |default_if_none:"" }}</td>
       <td>{{ person.gtel |default_if_none:"" }}</td>
       <td>{{ person.stel |default_if_none:"" }}</td>
