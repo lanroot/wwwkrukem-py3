@@ -14,7 +14,7 @@ class CurrentWeatherPlugin(CMSPluginBase):
     
     def render(self, context, instance, placeholder):
         request = context['request']
-#        user_ip_address = request.META['REMOTE_ADDR']
+        user_ip_address = request.META['REMOTE_ADDR']
         if user_ip_address == '127.0.0.1':
             user_ip_address = '68.70.92.82'
         cache_key = 'wunderground_result_%s' % user_ip_address
