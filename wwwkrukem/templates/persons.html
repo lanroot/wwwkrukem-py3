@@ -33,7 +33,7 @@
         {% for item in t.list %}
           <tr><h4>
             <td><a href="/userdir/get/{{ item.pers_id }}">{{ item.name }}</a></td>
-            <td><b><a href="mailto:{{ item.name }} <{{ item.email }}>">{{ item.email }}</b></td>
+            <td><b>{{ item.email | urlize }}</b></td>
             <td>{{ item.mtel | default_if_none:"" }}</td>
             <td>{{ item.gtel | default_if_none:"" }}</td>
             <td>{{ item.office | default_if_none:"" }}</td>
