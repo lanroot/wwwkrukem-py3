@@ -16,6 +16,8 @@ _MAIN_*
 *.orig
 *.back
 *.tar
+*.tgz
+*.swp
 settings.py
 manage.py
 wsgi.py
