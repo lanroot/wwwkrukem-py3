@@ -3,6 +3,7 @@
 *.db
 __pycache__
 migrations
+south_migrations
 env
 logs
 *.log*
