@@ -15,12 +15,10 @@ class CurrentWeatherPlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         request = context['request']
 #        user_ip_address = request.META['REMOTE_ADDR']
-#        if user_ip_address == '127.0.0.1':
-#            user_ip_address = '68.70.92.82'
-        user_ip_address = '94.137.254.131'
+        if user_ip_address == '127.0.0.1':
+            user_ip_address = '68.70.92.82'
         cache_key = 'wunderground_result_%s' % user_ip_address
         wunderground_key = settings.WUNDERGROUND_KEY
-#        weather_url = 'http://api.wunderground.com/api/%s/geolookup/conditions/q/autoip.json?geo_ip=%s' % (wunderground_key, user_ip_address)
 #        weather_url = 'http://api.wunderground.com/api/%s/geolookup/conditions/lang:RU/q/autoip.json?geo_ip=%s' % (wunderground_key, user_ip_address)
         weather_url = 'http://api.wunderground.com/api/%s/geolookup/conditions/lang:RU/q/Russia/Kemerovo.json' % (wunderground_key)
         weather_info = cache.get(cache_key)
