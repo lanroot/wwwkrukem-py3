@@ -10,6 +10,7 @@
             </a>
             <ul class="dropdown-menu">
                 {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
+                {% show_sub_menu 3 3 %}
             </ul>
         {% else %}
             <a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>
