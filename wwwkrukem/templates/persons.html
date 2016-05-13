@@ -22,23 +22,23 @@
       <div id="persons" style="text-align: left">
       <table>
         <tbody>
-        <tr><h4>
+        <tr style="font-size: 90%;">
           <th>ФИО</th>
           <th>E-mail</th>
           <th>&#9742;Меридиан&#160;</th>
           <th>&#9743;Городской&#160;</th>
           <th>Кабинет&#160;</th>
           <th>Должность</th>
-        </tr></h4>
+        </tr>
         {% for item in t.list %}
-          <tr><h4>
+          <tr>
             <td><a href="/userdir/get/{{ item.pers_id }}">{{ item.name }}</a></td>
             <td><b>{{ item.email | urlize }}</b></td>
             <td>{{ item.mtel | default_if_none:"" }}</td>
             <td>{{ item.gtel | default_if_none:"" }}</td>
             <td>{{ item.office | default_if_none:"" }}</td>
             <td>{{ item.post }}</td>
-          </tr></h4>
+          </tr>
         {% endfor %}
         </tbody>
       </table>
