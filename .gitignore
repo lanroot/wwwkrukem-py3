@@ -1,24 +1,33 @@
-*.py[c,o]
-*~
-*.db
+# Byte-compiled / optimized
 __pycache__
-migrations
-south_migrations
-env
-logs
+*.py[c,o]
+
+# Editors temp-files
+*~
+
+# Distribution / packaging
+env/
+
+# Django stuff:
+migrations/
+south_migrations/
+logs/
 *.log*
-CACHE
+CACHE/
+static/
 static
-media
-whoosh
+media/
+whoosh/
 MAIN_*
 _MAIN_*
+*.db
 *.orig
 *.back
 *.tar
 *.tgz
 *.swp
 settings.py
+local_settings.py
 manage.py
 wsgi.py
 script.sh
