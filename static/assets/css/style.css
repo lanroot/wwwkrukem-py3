@@ -106,10 +106,10 @@
 
 .mon, .tue, .wed, .thu, .fri, .sat, .sun { width: 2em; max-width: 3em; }
 
- #mfd-currency { border: 1px solid #2c87b7; width: 100%; }
+ #mfd-currency { border: 1px solid #2c87b7; width: 100%; white-space: nowrap;}
  .mfd-currency-header { background: #2c87b7; color: #ffffff; font-size: 1em; font-style: normal; font-weight: bold; margin: 0; padding: 0.5em 1em; }
  .mfd-currency-rate { background: #eff6fb; font-weight: bold; }
- .mfd-currency-symbol a { font-size: 2.4em; text-decoration: none; }
+ .mfd-currency-symbol a { font-size: 1.8em; text-decoration: none; }
  .mfd-currency-table { width: 100%; }
  .mfd-currency-table td { border: none; text-align: center; }
  .mfd-d { color: #ff1110; }
