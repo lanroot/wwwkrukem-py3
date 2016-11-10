@@ -106,7 +106,7 @@
 
 .mon, .tue, .wed, .thu, .fri, .sat, .sun { width: 2em; max-width: 3em; }
 
- #mfd-currency { border: 1px solid #2c87b7; width: 100%; white-space: nowrap;}
+ #mfd-currency { border: 1px solid #2c87b7; width: 100%; min-width: 268px; white-space: nowrap;}
  .mfd-currency-header { background: #2c87b7; color: #ffffff; font-size: 1em; font-style: normal; font-weight: bold; margin: 0; padding: 0.5em 1em; }
  .mfd-currency-rate { background: #eff6fb; font-weight: bold; }
  .mfd-currency-symbol a { font-size: 1.8em; text-decoration: none; }
@@ -116,7 +116,7 @@
  .mfd-u { color: #199300; }
  .mfd-z { color: #18479b; }
 
- #mfdTable { border: 1px solid #2c87b7; width: 100%; }
+ #mfdTable { border: 1px solid #2c87b7; width: 100%; min-width: 268px;}
  .mfdTable { background-color: #eff6fb; border-collapse: collapse; font-family: Tahoma; font-size: 10px; width: 100%;}
  .mfdTable, .mfdTable a { color: #18479b; }
  .mfdTable, .mfdTable tr { margin: 0; padding: 0; }
