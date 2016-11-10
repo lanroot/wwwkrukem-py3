@@ -105,3 +105,28 @@
 .ui-autocomplete.ui-menu { opacity: 0.9; }
 
 .mon, .tue, .wed, .thu, .fri, .sat, .sun { width: 2em; max-width: 3em; }
+
+ #mfd-currency { border: 1px solid #2c87b7; width: 100%; }
+ .mfd-currency-header { background: #2c87b7; color: #ffffff; font-size: 1em; font-style: normal; font-weight: bold; margin: 0; padding: 0.5em 1em; }
+ .mfd-currency-rate { background: #eff6fb; font-weight: bold; }
+ .mfd-currency-symbol a { font-size: 2.4em; text-decoration: none; }
+ .mfd-currency-table { width: 100%; }
+ .mfd-currency-table td { border: none; text-align: center; }
+ .mfd-d { color: #ff1110; }
+ .mfd-u { color: #199300; }
+ .mfd-z { color: #18479b; }
+
+ #mfdTable { border: 1px solid #2c87b7; width: 100%; }
+ .mfdTable { background-color: #eff6fb; border-collapse: collapse; font-family: Tahoma; font-size: 10px; width: 100%;}
+ .mfdTable, .mfdTable a { color: #18479b; }
+ .mfdTable, .mfdTable tr { margin: 0; padding: 0; }
+ .mfdTable td { border: 1px solid #18479b; margin: 0; padding: 3px 5px; white-space: nowrap; }
+ .mfdTickerID { text-align: left; width: 35%; }
+ .mfdTickerLast { text-align: right; width: 20%; }
+ .mfdTickerTrend { font-size: 8px; text-align: left; width: 35%; }
+ .mfdTickerTimestamp { font-size: 8px; text-align: right; width: 10%; white-space: nowrap; }
+ .mfdFooter { text-align: right; }
+ .mfdDown, .mfdDown a, .mfdDown td { color: #c80000; }
+ .mfdUp, .mfdUp a, .mfdUp td { color: #060; }
+ .mfdZero, .mfdZero a, .mfdZero td { color: #18479b; }
+ .mfd-na { color: #a0a0a0; }
