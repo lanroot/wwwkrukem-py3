@@ -103,3 +103,5 @@
 }
 
 .ui-autocomplete.ui-menu { opacity: 0.9; }
+
+.mon, .tue, .wed, .thu, .fri, .sat, .sun { width: 2em; max-width: 3em; }
