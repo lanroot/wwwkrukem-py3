@@ -116,7 +116,7 @@
  .mfd-u { color: #199300; }
  .mfd-z { color: #18479b; }
 
- #mfdTable { border: 1px solid #2c87b7; width: 100%; min-width: 268px;}
+ #mfdTable { border: 0px solid #2c87b7; width: 100%; min-width: 268px;}
  .mfdTable { background-color: #eff6fb; border-collapse: collapse; font-family: Tahoma; font-size: 10px; width: 100%;}
  .mfdTable, .mfdTable a { color: #18479b; }
  .mfdTable, .mfdTable tr { margin: 0; padding: 0; }
