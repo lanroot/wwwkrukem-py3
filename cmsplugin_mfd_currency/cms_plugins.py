@@ -5,8 +5,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.cache import cache
-from PIL import Image
-from io import BytesIO
 
 class MfdCurrencyPlugin(CMSPluginBase):
     name = _("MFD.RU Currency")
