@@ -52,7 +52,6 @@ six==1.10.0
 sqlparse==0.1.19
 tablib==0.11.2
 tzlocal==1.2.2
-Unidecode==0.4.19
 Whoosh==2.7.4
 zinnia-theme-bootstrap==0.4
 zinnia-wysiwyg-wymeditor==1.1
