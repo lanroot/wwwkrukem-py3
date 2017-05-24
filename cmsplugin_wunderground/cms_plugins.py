@@ -1,5 +1,5 @@
-#import urllib2
-from urllib.request import urlopen
+from urllib.request import urlopen, URLError, HTTPError
+from socket import timeout
 import json
 from cms.plugin_pool import plugin_pool
 from cms.plugin_base import CMSPluginBase
@@ -13,6 +13,7 @@ class CurrentWeatherPlugin(CMSPluginBase):
     render_template = "cmsplugin_wunderground/local_weather.html"
     
     def render(self, context, instance, placeholder):
+        urltimeout = 3
         request = context['request']
         user_ip_address = request.META['REMOTE_ADDR']
         if user_ip_address == '127.0.0.1':
@@ -23,13 +24,15 @@ class CurrentWeatherPlugin(CMSPluginBase):
         weather_url = 'http://api.wunderground.com/api/%s/geolookup/conditions/lang:RU/q/Russia/Kemerovo.json' % (wunderground_key)
         weather_info = cache.get(cache_key)
         if not weather_info:
-#            wunderground_response = urllib2.urlopen(weather_url)
-            wunderground_response = urlopen(weather_url)
-#            weather_info_json = wunderground_response.read()
-            weather_info_json = wunderground_response.read().decode('utf-8')
-            weather_info = json.loads(weather_info_json)
-            wind_kph = weather_info['current_observation']['wind_kph']
-            weather_info['current_observation']['wind_ms'] = ("%2d" % (wind_kph * 0.277778))
+            try:
+                wunderground_response = urlopen(weather_url, timeout=urltimeout)
+            except (timeout, HTTPError, URLError):
+                weather_info = "no data"
+            else:
+                weather_info_json = wunderground_response.read().decode('utf-8')
+                weather_info = json.loads(weather_info_json)
+                wind_kph = weather_info['current_observation']['wind_kph']
+                weather_info['current_observation']['wind_ms'] = ("%2d" % (wind_kph * 0.277778))
             cache.set(cache_key, weather_info, getattr(settings, 'WUNDERGROUND_CACHE_DURATION', 60*60))
             
         context.update({
