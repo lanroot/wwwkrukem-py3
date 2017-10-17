@@ -1,4 +1,4 @@
-from urllib.request import urlopen
+from urllib.request import urlopen, URLError, HTTPError
 from socket import timeout
 from cms.plugin_pool import plugin_pool
 from cms.plugin_base import CMSPluginBase
@@ -30,7 +30,7 @@ class MfdCurrencyPlugin(CMSPluginBase):
         if not mfdcurrency:
             try:
                 mfdcurrency_response = urlopen(mfdcurrency_url, timeout=urltimeout)
-            except timeout:
+            except (timeout, HTTPError, URLError):
                 mfdcurrency = "no data"
             else:
                 mfdcurrency = mfdcurrency_response.read()
@@ -39,7 +39,7 @@ class MfdCurrencyPlugin(CMSPluginBase):
         if not mfdtable:
             try:
                 mfdtable_response = urlopen(mfdtable_url, timeout=urltimeout)
-            except timeout:
+            except (timeout, HTTPError, URLError):
                 mfdtable = "no data"
             else:
                 mfdtable = mfdtable_response.read()
@@ -48,7 +48,7 @@ class MfdCurrencyPlugin(CMSPluginBase):
         if not mfdimage:
             try:
                 mfdimage_response = urlopen(mfdimage_url, timeout=urltimeout)
-            except timeout:
+            except (timeout, HTTPError, URLError):
                 mfdimage = "no data"
             else:
                 mfdimage = mfdimage_response.read()
