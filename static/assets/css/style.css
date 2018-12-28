@@ -65,6 +65,8 @@
   padding: 2px;
 }
 
+#responsive-image {  width: 100%;  height: auto; } 
+
 #person td
 {
     padding-left: 5px;
