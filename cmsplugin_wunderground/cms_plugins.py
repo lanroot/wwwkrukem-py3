@@ -28,11 +28,11 @@ class CurrentWeatherPlugin(CMSPluginBase):
                 wunderground_response = urlopen(weather_url, timeout=urltimeout)
             except (timeout, HTTPError, URLError):
                 weather_info = "no data"
-            else:
-                weather_info_json = wunderground_response.read().decode('utf-8')
-                weather_info = json.loads(weather_info_json)
-                wind_kph = weather_info['current_observation']['wind_kph']
-                weather_info['current_observation']['wind_ms'] = ("%2d" % (wind_kph * 0.277778))
+#            else:
+#                weather_info_json = wunderground_response.read().decode('utf-8')
+#                weather_info = json.loads(weather_info_json)
+#                wind_kph = weather_info['current_observation']['wind_kph']
+#                weather_info['current_observation']['wind_ms'] = ("%2d" % (wind_kph * 0.277778))
             cache.set(cache_key, weather_info, getattr(settings, 'WUNDERGROUND_CACHE_DURATION', 60*60))
             
         context.update({
