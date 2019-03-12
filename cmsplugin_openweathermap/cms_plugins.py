@@ -10,7 +10,8 @@ from django.core.cache import cache
 
 def degToCompass(num):
     val=int((num/22.5)+.5)
-    arr=["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+#    arr=["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+    arr=["Северный","СевСевВост","СевВосточный","ВостСевВост","Восточный","ВостЮгоВост", "ЮгоВосточный", "ЮгоЮгоВост","Южный","ЮгоЮгоЗап","ЮгоЗападный","ЗапСевЗап","Западный","ЗапСевЗап","СевЗападный","СевСевЗап"]
     return arr[(val % 16)]
 
 
@@ -22,12 +23,8 @@ class OpenWeatherMapPlugin(CMSPluginBase):
         urltimeout = 3
         request = context['request']
         user_ip_address = request.META['REMOTE_ADDR']
-        if user_ip_address == '127.0.0.1':
-            user_ip_address = '68.70.92.82'
         cache_key = 'wunderground_result_%s' % user_ip_address
         openweathermap_key = settings.OPENWEATHERMAP_KEY
-#        weather_url = 'http://api.wunderground.com/api/%s/geolookup/conditions/lang:RU/q/autoip.json?geo_ip=%s' % (wunderground_key, user_ip_address)
-#        weather_url = 'http://api.wunderground.com/api/%s/geolookup/conditions/lang:RU/q/Russia/Kemerovo.json' % (wunderground_key)
         weather_url = 'http://api.openweathermap.org/data/2.5/weather?q=Kemerovo,ru&APPID=8ebb785926088d2bf4fa3ef8b1d3ae43&units=metric'
         weather_info = cache.get(cache_key)
         if not weather_info:
@@ -38,14 +35,11 @@ class OpenWeatherMapPlugin(CMSPluginBase):
             else:
                 weather_info_json = openweathermap_response.read().decode('utf-8')
                 weather_info = json.loads(weather_info_json)
-#                wind_kph = weather_info['current_observation']['wind_kph']
-#                weather_info['current_observation']['wind_ms'] = ("%2d" % (wind_kph * 0.277778))
                 weather_info['wind']['direction'] = degToCompass(weather_info['wind']['deg'])
             cache.set(cache_key, weather_info, getattr(settings, 'OPENWEATHERMAP_CACHE_DURATION', 60*60))
             
         context.update({
             'instance': instance,
-            'ip': user_ip_address,
             'weather_info': weather_info,
         })
         return context
