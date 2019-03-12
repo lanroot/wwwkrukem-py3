@@ -1,0 +1,26 @@
+<div>
+    <div>
+        {{ weather_info.name }},
+        {% now "j F Y H:m" %}
+    </div>
+    <div>
+        {{ weather_info.main.temp }}°c
+        {{ weather_info.current_observation.weather }}
+        <img src="{{ weather_info.current_observation.icon_url }}" />
+    </div>
+    <div>
+        {{ weather_info.weather.0.main }}
+        ({{ weather_info.weather.0.description }})
+    </div>
+    <div>
+        {{ "Ветер" }}
+        {{ weather_info.wind.deg }}°
+        {{ weather_info.wind.speed }}
+        {{ "м/с" }}
+    </div>
+    <div>
+        {{ "Влажность" }}
+        {{ weather_info.main.humidity }}%
+    </div>
+</div>
+
