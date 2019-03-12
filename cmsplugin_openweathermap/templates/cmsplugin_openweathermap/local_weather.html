@@ -5,10 +5,6 @@
     </div>
     <div>
         {{ weather_info.main.temp }}°c
-        {{ weather_info.current_observation.weather }}
-        <img src="{{ weather_info.current_observation.icon_url }}" />
-    </div>
-    <div>
         {{ weather_info.weather.0.main }}
         ({{ weather_info.weather.0.description }})
     </div>
