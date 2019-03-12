@@ -8,6 +8,12 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.cache import cache
 
+def degToCompass(num):
+    val=int((num/22.5)+.5)
+    arr=["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+    return arr[(val % 16)]
+
+
 class OpenWeatherMapPlugin(CMSPluginBase):
     name = _("Open Weather Map ")
     render_template = "cmsplugin_openweathermap/local_weather.html"
@@ -34,6 +40,7 @@ class OpenWeatherMapPlugin(CMSPluginBase):
                 weather_info = json.loads(weather_info_json)
 #                wind_kph = weather_info['current_observation']['wind_kph']
 #                weather_info['current_observation']['wind_ms'] = ("%2d" % (wind_kph * 0.277778))
+                weather_info['wind']['direction'] = degToCompass(weather_info['wind']['deg'])
             cache.set(cache_key, weather_info, getattr(settings, 'OPENWEATHERMAP_CACHE_DURATION', 60*60))
             
         context.update({
