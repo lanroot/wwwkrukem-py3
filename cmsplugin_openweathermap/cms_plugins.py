@@ -25,7 +25,7 @@ class OpenWeatherMapPlugin(CMSPluginBase):
         user_ip_address = request.META['REMOTE_ADDR']
         cache_key = 'wunderground_result_%s' % user_ip_address
         openweathermap_key = settings.OPENWEATHERMAP_KEY
-        weather_url = 'http://api.openweathermap.org/data/2.5/weather?q=Kemerovo,ru&APPID=8ebb785926088d2bf4fa3ef8b1d3ae43&units=metric'
+        weather_url = 'http://api.openweathermap.org/data/2.5/weather?q=Kemerovo,ru&APPID=8ebb785926088d2bf4fa3ef8b1d3ae43&units=metric&lang=ru'
         weather_info = cache.get(cache_key)
         if not weather_info:
             try:
