@@ -36,7 +36,7 @@ class OpenWeatherMapPlugin(CMSPluginBase):
                 weather_info_json = openweathermap_response.read().decode('utf-8')
                 weather_info = json.loads(weather_info_json)
                 weather_info['wind']['direction'] = degToCompass(weather_info['wind']['deg'])
-            cache.set(cache_key, weather_info, getattr(settings, 'OPENWEATHERMAP_CACHE_DURATION', 60*30))
+            cache.set(cache_key, weather_info, getattr(settings, 'OPENWEATHERMAP_CACHE_DURATION', 60*60))
             
         context.update({
             'instance': instance,
