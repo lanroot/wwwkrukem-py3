@@ -11,7 +11,7 @@ from django.core.cache import cache
 def degToCompass(num):
     val=int((num/22.5)+.5)
 #    arr=["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
-    arr=["Северный","СевСевВост","СевВосточный","ВостСевВост","Восточный","ВостЮгоВост", "ЮгоВосточный", "ЮгоЮгоВост","Южный","ЮгоЮгоЗап","ЮгоЗападный","ЗапСевЗап","Западный","ЗапСевЗап","СевЗападный","СевСевЗап"]
+    arr=["Северный","СевСевВост","СевВосточный","ВостСевВост","Восточный","ВостЮгоВост", "ЮгоВосточный", "ЮгоЮгоВост","Южный","ЮгоЮгоЗап","ЮгоЗападный","ЗапЮгЗап","Западный","ЗапСевЗап","СевЗападный","СевСевЗап"]
     return arr[(val % 16)]
 
 
@@ -35,7 +35,11 @@ class OpenWeatherMapPlugin(CMSPluginBase):
             else:
                 weather_info_json = openweathermap_response.read().decode('utf-8')
                 weather_info = json.loads(weather_info_json)
-#                weather_info['wind']['direction'] = degToCompass(weather_info['wind']['deg'])
+                if weather_info['wind']['deg']:
+                    weather_info['wind']['direction'] = degToCompass(weather_info['wind']['deg'])
+                else:
+                    weather_info['wind']['deg'] = 270 
+
             cache.set(cache_key, weather_info, getattr(settings, 'OPENWEATHERMAP_CACHE_DURATION', 60*60))
             
         context.update({
