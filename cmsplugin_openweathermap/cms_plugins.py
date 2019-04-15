@@ -38,7 +38,8 @@ class OpenWeatherMapPlugin(CMSPluginBase):
                 if weather_info['wind']['deg']:
                     weather_info['wind']['direction'] = degToCompass(weather_info['wind']['deg'])
                 else:
-                    weather_info['wind']['deg'] = 270 
+                    weather_info['wind']['deg'] =  'N/A'
+                    weather_info['wind']['direction'] =  'N/A'
 
             cache.set(cache_key, weather_info, getattr(settings, 'OPENWEATHERMAP_CACHE_DURATION', 60*60))
             
