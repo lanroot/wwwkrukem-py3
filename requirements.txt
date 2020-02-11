@@ -2,7 +2,7 @@ beautifulsoup4==4.4.1
 cmsplugin-polls==0.1.0
 cmsplugin-zinnia==0.8
 dj-database-url==0.4.1
-Django==1.9.5
+Django==1.11.28
 django-app-namespace-template-loader==0.3.1
 django-appconf==1.0.2
 django-blog-zinnia==0.16
