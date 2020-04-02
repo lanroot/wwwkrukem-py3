@@ -50,7 +50,7 @@ requests==2.12.1
 rjsmin==1.0.12
 six==1.10.0
 sqlparse==0.1.19
-tablib==0.11.2
+tablib==0.11.5
 tzlocal==1.2.2
 Whoosh==2.7.4
 zinnia-theme-bootstrap==0.4
