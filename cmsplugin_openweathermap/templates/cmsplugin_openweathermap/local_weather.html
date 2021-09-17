@@ -4,7 +4,7 @@
         {% now "j E Y H:m" %}
     </div>
     <div>
-        {{ weather_info.main.temp }}°c
+        {{ weather_info.main.temp | floatformat:"0"}}°c
         {{ weather_info.weather.0.main }}
         ({{ weather_info.weather.0.description }})
     </div>
@@ -12,6 +12,7 @@
         {{ "Ветер" }}
         {{ weather_info.wind.speed }}
         {{ "м/с" }}
+        {{ weather_info.wind.direction }}
     </div>
     <div>
         {{ "Влажность" }}

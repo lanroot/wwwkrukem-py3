@@ -35,11 +35,11 @@ class OpenWeatherMapPlugin(CMSPluginBase):
             else:
                 weather_info_json = openweathermap_response.read().decode('utf-8')
                 weather_info = json.loads(weather_info_json)
-#                if weather_info['wind']['deg']:
-#                    weather_info['wind']['direction'] = degToCompass(weather_info['wind']['deg'])
-#                else:
-#                    weather_info['wind']['deg'] =  'N/A'
-#                    weather_info['wind']['direction'] =  'N/A'
+                if weather_info['wind']['deg']:
+                    weather_info['wind']['direction'] = degToCompass(weather_info['wind']['deg'])
+                else:
+                    weather_info['wind']['deg'] =  'N/A'
+                    weather_info['wind']['direction'] =  'N/A'
 
             cache.set(cache_key, weather_info, getattr(settings, 'OPENWEATHERMAP_CACHE_DURATION', 60*60))
             
