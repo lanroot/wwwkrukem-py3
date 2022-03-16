@@ -16,15 +16,15 @@ class MfdCurrencyPlugin(CMSPluginBase):
         request = context['request']
 
         cache_key_mfdcurrency = 'mfdcurrency_result'
-        mfdcurrency_url = 'http://mfd.ru/services/informers/currency/'
+        mfdcurrency_url = 'https://mfd.ru/services/informers/currency/'
         mfdcurrency = cache.get(cache_key_mfdcurrency)
 
         cache_key_mfdtable = 'mfdtable_result'
-        mfdtable_url = 'http://mfd.ru/marketdata/tables/handlerjs.ashx?sources=53$|19$|13$|29$'
+        mfdtable_url = 'https://mfd.ru/marketdata/tables/handlerjs.ashx?sources=53$|19$|13$|29$'
         mfdtable = cache.get(cache_key_mfdtable)
 
         cache_key_mfdimage= 'mfdimage_result'
-        mfdimage_url='http://mfd.ru/marketdata/charts/handler.ashx?id=1954&width=255&height=150&lineColor=%232c87b7&backgroundColor=%23eff6fb&gridColor=%23a3c3cc&axisColor=%23617db4&textColor=%2318479b'
+        mfdimage_url='https://mfd.ru/marketdata/charts/handler.ashx?id=1954&width=255&height=150&lineColor=%232c87b7&backgroundColor=%23eff6fb&gridColor=%23a3c3cc&axisColor=%23617db4&textColor=%2318479b'
         mfdimage = cache.get(cache_key_mfdimage)
 
         if not mfdcurrency:
