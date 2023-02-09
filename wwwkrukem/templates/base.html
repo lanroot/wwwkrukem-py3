@@ -32,7 +32,7 @@
             <tr>
               <td>
                  <form class="form-inline" role="form" method="get" action="/ru/userdir/search_persons/">
-                 <button class="btn btn-default" type="submit" value="Поиск в справочнике:">Поиск в справочнике:</button>
+                 <button class="btn btn-default" type="submit" title="Справочник неактуален. Актуальный справочник в Глобальном списке адресов в вашем почтовом клиенте Outlook" value="Поиск в справочнике:">Поиск в справочнике:</button>
                  <input class="input-medium form-control" style="width:50%" type="text" id="id_q" name="sh" value="{{ search_text }}" placeholder="E-mail, ФИО, должность и т.д." required title="3 символа минимум" pattern=".{3,}">
                  </form>
               </td>
@@ -44,6 +44,11 @@
               </td>
               <td>
                  <a href="http://www.kru.kem/mon/">.</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b><p style="color:#FF0000";>Справочник неактуален.</b></p> Актуальный справочник в Глобальном списке адресов в вашем почтовом клиенте Outlook.
               </td>
             </tr>
           </table>
